@@ -3,9 +3,11 @@ const app = express();
 const port = 3000;
 const connectDB = require("./db/db-connection");
 const users = require("./routes/User")
+const cors = require('cors')
 
 //MiddleWare
 app.use(express.json())
+app.use(cors());
 app.use("/api/v1/users" , users);
 
 // app.get('/', (req, res) => {

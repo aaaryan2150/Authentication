@@ -6,7 +6,7 @@ const users = require("./routes/User")
 
 //MiddleWare
 app.use(express.json())
-app.use("/api/v1/users" , users)
+app.use("/api/v1/users" , users);
 
 // app.get('/', (req, res) => {
 //     res.send('Hello');

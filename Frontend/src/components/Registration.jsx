@@ -21,7 +21,10 @@ const Login = () => {
   const HandleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/users/register', loginData);
+      const response = await axios.post('http://localhost:3000/api/v1/users/register', loginData,
+      {
+        withCredentials:true
+      });
       const { success, message } = response.data;
       console.log(response.data)
 
@@ -29,6 +32,7 @@ const Login = () => {
       if (message == "Registration Successful") {
         setLoginStatus('success');
         console.log('REGISTRATION successful');
+        location.assign("./login");
       } else {
         setLoginStatus('error');
         console.log(message);

@@ -21,12 +21,16 @@ const Login = () => {
   const HandleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/users/login', loginData);
+      const response = await axios.post('http://localhost:3000/api/v1/users/login', loginData,
+      {
+        withCredentials:true
+      });
       const { success, message } = response.data;
 
-      if (message == "login successful") {
+      if (message == "Login successful") {
         setLoginStatus('success');
         console.log('login successful');
+        location.assign("./");
       } else {
         setLoginStatus('error');
         console.log(message);
